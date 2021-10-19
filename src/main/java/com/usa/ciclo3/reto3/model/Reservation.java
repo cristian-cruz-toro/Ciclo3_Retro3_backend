@@ -42,6 +42,7 @@ public class Reservation implements Serializable {
 	@JsonIgnoreProperties({ "reservations", "messages" })
 	private Client client;
 
+	private String score;
 	/**
 	 * @return the idReservation
 	 */
@@ -117,6 +118,14 @@ public class Reservation implements Serializable {
 	 */
 	public Client getClient() {
 		return client;
+	}
+
+	public String getScore() {
+		return score;
+	}
+
+	public void setScore(String score) {
+		this.score = score;
 	}
 
 	/**
