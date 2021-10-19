@@ -5,9 +5,9 @@
  */
 package com.usa.ciclo3.reto3.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,76 +16,78 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author camna
  */
 @Entity
 @Table(name = "Category")
-public class Category implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private String description;
-    
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
-    @JsonIgnoreProperties("category")
-    private List<Quadbike> quadbikes;
+public class Category implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String name;
+	private String description;
 
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-        return id;
-    }
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "category")
+	@JsonIgnoreProperties("category")
+	private List<Quadbike> quadbikes;
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    /**
-     * @param description the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    /**
-     * @return the quadbikes
-     */
-    public List<Quadbike> getQuadbikes() {
-        return quadbikes;
-    }
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    /**
-     * @param quadbikes the quadbikes to set
-     */
-    public void setQuadbikes(List<Quadbike> quadbikes) {
-        this.quadbikes = quadbikes;
-    }
+	/**
+	 * @return the quadbikes
+	 */
+	public List<Quadbike> getQuadbikes() {
+		return quadbikes;
+	}
+
+	/**
+	 * @param quadbikes the quadbikes to set
+	 */
+	public void setQuadbikes(List<Quadbike> quadbikes) {
+		this.quadbikes = quadbikes;
+	}
 }

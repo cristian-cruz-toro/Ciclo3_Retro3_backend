@@ -5,8 +5,8 @@
  */
 package com.usa.ciclo3.reto3.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,111 +15,113 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author camna
  */
 @Entity
 @Table(name = "Reservation")
-public class Reservation implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idReservation;
-    private String startDate;
-    private String devolutionDate;
-    private String status;
-    
-    @ManyToOne
-    @JoinColumn(name="quadbikeId")
-    @JsonIgnoreProperties({"reservations","client"})
-    private Quadbike quadbike;
-    
-    @ManyToOne
-    @JoinColumn(name="clientId")
-    @JsonIgnoreProperties({"reservations","messages"})
-    private Client client;
+public class Reservation implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idReservation;
+	private String startDate;
+	private String devolutionDate;
+	private String status;
 
-    /**
-     * @return the idReservation
-     */
-    public Integer getIdReservation() {
-        return idReservation;
-    }
+	@ManyToOne
+	@JoinColumn(name = "quadbikeId")
+	@JsonIgnoreProperties({ "reservations", "client" })
+	private Quadbike quadbike;
 
-    /**
-     * @param idReservation the idReservation to set
-     */
-    public void setIdReservation(Integer idReservation) {
-        this.idReservation = idReservation;
-    }
+	@ManyToOne
+	@JoinColumn(name = "clientId")
+	@JsonIgnoreProperties({ "reservations", "messages" })
+	private Client client;
 
-    /**
-     * @return the startDate
-     */
-    public String getStartDate() {
-        return startDate;
-    }
+	/**
+	 * @return the idReservation
+	 */
+	public Integer getIdReservation() {
+		return idReservation;
+	}
 
-    /**
-     * @param startDate the startDate to set
-     */
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
+	/**
+	 * @param idReservation the idReservation to set
+	 */
+	public void setIdReservation(Integer idReservation) {
+		this.idReservation = idReservation;
+	}
 
-    /**
-     * @return the devolutionDate
-     */
-    public String getDevolutionDate() {
-        return devolutionDate;
-    }
+	/**
+	 * @return the startDate
+	 */
+	public String getStartDate() {
+		return startDate;
+	}
 
-    /**
-     * @param devolutionDate the devolutionDate to set
-     */
-    public void setDevolutionDate(String devolutionDate) {
-        this.devolutionDate = devolutionDate;
-    }
+	/**
+	 * @param startDate the startDate to set
+	 */
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
+	/**
+	 * @return the devolutionDate
+	 */
+	public String getDevolutionDate() {
+		return devolutionDate;
+	}
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }    
+	/**
+	 * @param devolutionDate the devolutionDate to set
+	 */
+	public void setDevolutionDate(String devolutionDate) {
+		this.devolutionDate = devolutionDate;
+	}
 
-    /**
-     * @return the quadbike
-     */
-    public Quadbike getQuadbike() {
-        return quadbike;
-    }
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
 
-    /**
-     * @param quadbike the quadbike to set
-     */
-    public void setQuadbike(Quadbike quadbike) {
-        this.quadbike = quadbike;
-    }
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    /**
-     * @return the client
-     */
-    public Client getClient() {
-        return client;
-    }
+	/**
+	 * @return the quadbike
+	 */
+	public Quadbike getQuadbike() {
+		return quadbike;
+	}
 
-    /**
-     * @param client the client to set
-     */
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	/**
+	 * @param quadbike the quadbike to set
+	 */
+	public void setQuadbike(Quadbike quadbike) {
+		this.quadbike = quadbike;
+	}
+
+	/**
+	 * @return the client
+	 */
+	public Client getClient() {
+		return client;
+	}
+
+	/**
+	 * @param client the client to set
+	 */
+	public void setClient(Client client) {
+		this.client = client;
+	}
 }
