@@ -20,10 +20,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- *
- * @author camna
- */
 @Entity
 @Table(name = "Quadbike")
 public class Quadbike implements Serializable {

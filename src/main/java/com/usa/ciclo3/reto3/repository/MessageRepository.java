@@ -14,10 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.usa.ciclo3.reto3.model.Message;
 import com.usa.ciclo3.reto3.repository.crud.MessageCrudRepository;
 
-/**
- *
- * @author camna
- */
+
 @Repository
 public class MessageRepository {
 	@Autowired

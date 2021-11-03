@@ -14,10 +14,6 @@ import org.springframework.stereotype.Repository;
 import com.usa.ciclo3.reto3.model.Client;
 import com.usa.ciclo3.reto3.repository.crud.ClientCrudRepository;
 
-/**
- *
- * @author camna
- */
 @Repository
 public class ClientRepository {
 	@Autowired
