@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.usa.ciclo3.reto3.service;
 
 import com.usa.ciclo3.reto3.model.Message;
@@ -17,10 +12,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author camna
- */
+
 @Service
 public class ReservationService {
     @Autowired
@@ -31,12 +23,6 @@ public class ReservationService {
     }
     
     public Optional<Reservation> getReservation(int id){
-        ReservationRepository m;
-        Quadbike qb= reservationRepository.getReservation(id).get().getQuadbike();
-        Message ms = (Message) reservationRepository.getReservation(id).get().getQuadbike().getMessages();
-        ms.setClient(null);        
-        qb.setMessages((List<Message>) ms);
-        reservationRepository.getReservation(id).get().setQuadbike(qb);
         return reservationRepository.getReservation(id);
     }
     
@@ -55,5 +41,16 @@ public class ReservationService {
                 return r;
             }
         }
+    }
+    
+    public  void deleteId(Integer id) {
+    	try {			
+    		reservationRepository.deleteId(id);
+    	} catch (Exception e) {
+    	}
+    }
+    
+    public  Reservation update(Reservation c) {
+             return reservationRepository.save(c);
     }
 }
