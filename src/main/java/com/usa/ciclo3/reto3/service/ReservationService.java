@@ -1,22 +1,27 @@
 package com.usa.ciclo3.reto3.service;
 
-import com.usa.ciclo3.reto3.model.Message;
-import com.usa.ciclo3.reto3.model.Quadbike;
-import com.usa.ciclo3.reto3.model.Reservation;
-import com.usa.ciclo3.reto3.repository.ReservationRepository;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.usa.ciclo3.reto3.model.BestClient;
+import com.usa.ciclo3.reto3.model.Client;
+import com.usa.ciclo3.reto3.model.Reservation;
+import com.usa.ciclo3.reto3.model.count;
+import com.usa.ciclo3.reto3.repository.ReservationRepository;
 
 
 @Service
 public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
+    
+    @Autowired
+    private count numeroReserva;
     
     public List<Reservation> getAll(){
         return reservationRepository.getAll();
@@ -28,14 +33,10 @@ public class ReservationService {
     
     public Reservation save (Reservation r){
         if(r.getIdReservation()==null){
-            r.setStatus("created");
             return reservationRepository.save(r);
         }else{
             Optional<Reservation> raux = reservationRepository.getReservation(r.getIdReservation());
             if(!raux.isPresent()){
-                r.setStatus("created");
-//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.getDefault());
-//                r.setStartDate(sdf.format(new Date()));
                 return reservationRepository.save(r);
             }else{
                 return r;
@@ -53,4 +54,26 @@ public class ReservationService {
     public  Reservation update(Reservation c) {
              return reservationRepository.save(c);
     }
+    
+    public List<Reservation> reservasPorFecha(Date FechaI,Date FechaF) {
+    	if(FechaI.before(FechaF)) {
+    		System.out.println(FechaI);
+    		System.out.println(FechaF);
+    		return reservationRepository.reservasPorFecha(FechaI,FechaF);
+    	}else {
+    		return new ArrayList<>();
+    	}
+    }
+    public count cantidadReserva() {
+    	int valor2=reservationRepository.cantidadReservaCancelada();
+    	int valor=reservationRepository.cantidadReservaCompetada();
+        numeroReserva.setCancelled(valor2);
+        numeroReserva.setCompleted(valor);
+        return numeroReserva;
+    }
+    
+     public List<BestClient> mejoresClientes() {
+    	 return   reservationRepository.mejoresClientes();
+     }
+    
 }
