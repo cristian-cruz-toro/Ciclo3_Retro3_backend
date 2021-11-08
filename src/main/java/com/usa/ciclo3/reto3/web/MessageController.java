@@ -42,12 +42,12 @@ public class MessageController {
     }
     
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id){
+    public void delete(@PathVariable("id") Integer id){
     	messageService.deleteId(id);
     }
     
     @PutMapping("/update")
-    public Message update(@RequestBody Message c) {
-    	return messageService.update(c);
+    public void update(@RequestBody Message c) {
+    	 messageService.update(c);
     }
 }

@@ -30,11 +30,6 @@ public class ClientController {
         return clientService.getAll();
     }
     
-    @GetMapping("/obtener/{id}")
-    public Optional<Client> getClient(@PathVariable("id") int id){
-        return clientService.getClient(id);
-    }
-    
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client c){
@@ -42,12 +37,14 @@ public class ClientController {
     }
     
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id){
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("id") Integer id){
     	clientService.deleteId(id);
     }
     
     @PutMapping("/update")
-    public Client update(@RequestBody Client c) {
-    	return clientService.update(c);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void update(@RequestBody Client c) {
+    	 clientService.update(c);
     }
 }

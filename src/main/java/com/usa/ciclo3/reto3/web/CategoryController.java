@@ -47,12 +47,12 @@ public class CategoryController {
     }
     
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id){
+    public void delete(@PathVariable("id") Integer id){
         categoryService.deleteId(id);
     }
     
     @PutMapping("/update")
-    public Category update(@RequestBody Category c) {
-    	return categoryService.update(c);
+    public void update(@RequestBody Category c) {
+    	 categoryService.update(c);
     }
 }

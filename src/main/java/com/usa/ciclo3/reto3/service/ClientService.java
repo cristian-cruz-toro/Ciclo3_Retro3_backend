@@ -16,9 +16,7 @@ public class ClientService {
         return clientRepository.getAll();
     }
     
-    public Optional<Client> getClient(int id){
-        return clientRepository.getClient(id);
-    }
+ 
     
     public Client save (Client c){
         if(c.getIdClient()==null){
@@ -41,6 +39,7 @@ public class ClientService {
     }
     
     public  Client update(Client c) {
+    	
              return clientRepository.save(c);
     }
 }

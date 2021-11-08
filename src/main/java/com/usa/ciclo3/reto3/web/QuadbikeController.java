@@ -42,12 +42,12 @@ public class QuadbikeController {
     }
     
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id){
+    public void delete(@PathVariable("id") Integer id){
     	quadbikeService.deleteId(id);
     }
     
     @PutMapping("/update")
-    public Quadbike update(@RequestBody Quadbike q) {
-    	return quadbikeService.update(q);
+    public void update(@RequestBody Quadbike q) {
+    	 quadbikeService.update(q);
     }
 }
