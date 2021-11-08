@@ -42,13 +42,11 @@ public class MessageController {
     }
     
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("id") int id){
     	messageService.deleteId(id);
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
     public Message update(@RequestBody Message c) {
     	return messageService.update(c);
     }

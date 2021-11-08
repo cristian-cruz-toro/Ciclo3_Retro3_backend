@@ -51,13 +51,11 @@ public class ReservationController {
     }
     
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("id") int id){
     	reservationService.deleteId(id);
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
     public Reservation update(@RequestBody Reservation c) {
     	return reservationService.update(c);
     }
