@@ -42,13 +42,11 @@ public class QuadbikeController {
     }
     
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("id") int id){
     	quadbikeService.deleteId(id);
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.OK)
     public Quadbike update(@RequestBody Quadbike q) {
     	return quadbikeService.update(q);
     }
