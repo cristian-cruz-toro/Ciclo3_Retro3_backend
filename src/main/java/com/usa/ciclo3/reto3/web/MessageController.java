@@ -48,7 +48,7 @@ public class MessageController {
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public Message update(@RequestBody Message c) {
     	return messageService.update(c);
     }

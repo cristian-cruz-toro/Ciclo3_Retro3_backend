@@ -48,7 +48,7 @@ public class QuadbikeController {
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public Quadbike update(@RequestBody Quadbike q) {
     	return quadbikeService.update(q);
     }

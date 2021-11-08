@@ -53,7 +53,7 @@ public class CategoryController {
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public Category update(@RequestBody Category c) {
     	return categoryService.update(c);
     }
