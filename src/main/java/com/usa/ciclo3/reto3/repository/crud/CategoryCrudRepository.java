@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.usa.ciclo3.reto3.repository.crud;
 
-import com.usa.ciclo3.reto3.model.Category;
 import org.springframework.data.repository.CrudRepository;
 
+import com.usa.ciclo3.reto3.model.Category;
+
 /**
- *
- * @author camna
+ * repositorio CRUD proyecto Cuatrimotos category
+ * 
+ * @author: Cristian Felipe Cruz
+ * @version: 08/11/2021 version2
  */
-public interface CategoryCrudRepository extends CrudRepository<Category, Integer>{
-    
+public interface CategoryCrudRepository extends CrudRepository<Category, Integer> {
+
 }

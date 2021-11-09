@@ -19,8 +19,10 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- *
- * @author camna
+ * entity CRUD proyecto Cuatrimotos category
+ * 
+ * @author: Cristian Felipe Cruz
+ * @version: 08/11/2021 version2
  */
 @Entity
 @Table(name = "Category")

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.usa.ciclo3.reto3.model;
 
 import java.io.Serializable;
@@ -17,7 +12,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
+/**
+ * entity CRUD proyecto Cuatrimotos message
+ * 
+ * @author: Cristian Felipe Cruz
+ * @version: 08/11/2021 version2
+ */
 @Entity
 @Table(name = "Message")
 public class Message implements Serializable {
